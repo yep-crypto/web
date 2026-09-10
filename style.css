@@ -1,0 +1,142 @@
+/* 1. Обязательный универсальный селектор */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Общие стили для всего документа (шрифт Google Fonts) */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #222222;
+    background-color: #ffffff;
+    line-height: 1.5;
+}
+
+/* Ограничивающий контейнер по центру страницы */
+.page-container {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 40px 20px 60px 20px;
+}
+
+.header {
+    margin-bottom: 30px; /* Отступ вниз от шапки */
+}
+
+.logo-title {
+    font-size: 32px;      /* Размер букв логотипа */
+    font-weight: 700;    /* Жирность (700 = Bold) */
+    color: #000000;      /* Черный цвет */
+    margin-bottom: 35px; /* Отступ вниз до пунктов меню */
+}
+
+.nav-menu {
+    display: flex;       /* Выстраивает ссылки меню в одну горизонтальную линию */
+    gap: 25px;           /* Расстояние между ссылками */
+    margin-bottom: 25px; /* Отступ снизу от меню до картинки */
+}
+
+.nav-link {
+    text-decoration: none;             /* Убирает стандартное синее подчеркивание у ссылок */
+    font-family: 'Roboto', sans-serif; /* Шрифт */
+    font-size: 16px;                   /* Размер */
+    font-weight: 500;                  /* Средняя плотность шрифта */
+    color: #111111;                    /* Почти черный цвет */
+    transition: color 0.2s ease;       /* Плавность смены цвета при наведении (0.2 секунды) */
+}
+
+.nav-link:hover {
+    color: #e65100; /* Цвет ссылки при наведении курсора мыши (:hover) */
+}
+
+.main-image {
+    width: 100%;          /* Картинка занимает 100% ширины своего контейнера */
+    height: 380px;        /* Фиксированная высота как в макете */
+    object-fit: cover;    /* Картинка красиво обрезается, не сжимаясь и не теряя пропорций */
+    display: block;
+    margin-bottom: 30px;  /* Отступ снизу */
+}
+
+.section-title {
+    font-size: 22px;      /* Размер шрифта заголовков h2 */
+    font-weight: 700;    /* Жирный шрифт */
+    color: #000000;
+    margin-top: 30px;     /* Отступ сверху от предыдущего блока */
+    margin-bottom: 15px;  /* Отступ снизу до текста */
+}
+
+.about-text {
+    font-size: 15px;
+    font-weight: 400;     /* Обычный текст (Regular) */
+    color: #333333;
+}
+
+.features-list {
+    margin-left: 20px;    /* Сдвиг вправо, чтобы точки списка встали на свое место */
+    font-size: 15px;
+    color: #222222;
+}
+
+.features-list li {
+    margin-bottom: 6px; /* Расстояние между пунктами списка */
+}
+
+/* Таблица (согласно требованиям: padding, border, border-collapse, text-align) */
+.dishes-table {
+    width: 100%;
+    max-width: 600px;
+    border-collapse: collapse; /* Убирает двойные щели между рамками ячеек (требование ТЗ!) */
+    margin-top: 15px;
+}
+
+.dishes-table th,
+.dishes-table td {
+    border: 1px solid #444444; /* Серая граница толщиной в 1 пиксель вокруг каждой ячейки */
+    padding: 10px 14px;        /* Внутренний отступ текста от границы ячейки */
+    text-align: center;        /* Текст по умолчанию по центру ячейки */
+    font-size: 14px;
+}
+
+.dishes-table th {
+    font-weight: 700;          /* Жирный текст в заголовках таблицы */
+    color: #000000;
+}
+
+.dishes-table .text-left {
+    text-align: left;          /* Названия блюд выравниваем по левому краю */
+}
+
+.col-num {
+    width: 40px;               /* Узкая колонка для номеров 1, 2, 3... */
+}
+
+/* Футер (согласно требованиям: background-color: black, color: white) */
+.footer {
+    background-color: black;  /* Черный фон футера  */
+    color: white;             /* Белый текст футера  */
+    padding: 35px 20px;       /* Отступы внутри футера */
+    margin-top: 50px;         /* Отступ от таблицы до футера */
+}
+
+.footer-container {
+    max-width: 750px;         /* Ограничиваем текст футера по той же ширине, что и сайт */
+    margin: 0 auto;           /* Центрируем содержимое футера */
+}
+
+.footer-text {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.footer-link {
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+    color: white;             /* Белый номер телефона */
+    margin-left: 5px;
+}
+
+.footer-link:hover {
+    color: #ffb74d; /* Номер становится оранжевым при наведении */
+}

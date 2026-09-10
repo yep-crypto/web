@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<!--говорит браузеру: «Этот документ написан по современным стандартам HTML5». Без этой строчки браузер может отображать страницу со старыми ошибками.-->
+
+<html lang="ru">
+<!--текст на русском-->
+<head>
+<!--    все что в этом блоке не видно, это настройки-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!--    настройка для телефонов и планшетов-->
+    <title>Food Construct — доставка бизнес-ланчей</title>
+<!--    заголовок в самом верху-->
+
+    <!-- подключение шрифта Roboto из Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- подключение файла стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--а эту часть кода мы видим на сайте-->
+
+<div class="page-container">
+    <!-- тег <div> — это просто универсальная «коробка-обертка».
+    мы дали ей класс page-container, чтобы потом в CSS ограничить
+    сайт по ширине и поставить по центру экрана
+    (чтобы он не растягивался на гигантские мониторы).-->
+    <header class="header">
+        <h1 class="logo-title">Food Construct</h1>
+<!--        самый главный заголовок сайта-->
+        <nav class="nav-menu">
+            <a href="#about" class="nav-link">О нас</a>
+            <a href="#lunch" class="nav-link">Собрать ланч</a>
+            <a href="#orders" class="nav-link">Заказы</a>
+            <!-- Якорная ссылка, ведущая к футеру -->
+            <a href="#contacts" class="nav-link">Контакты</a>
+        </nav>
+<!--        это навигация сайта, <a обозначает ссылку,
+а # не дает переходить на другую страницу,
+а просто перематывает в какой-то отдел-->
+    </header>
+
+    <!-- основной контент страницы -->
+    <main>
+        <section id="about" class="section-about">
+            <img src="banner.jpg"
+                 alt="Бизнес-ланч на столе" class="main-image">
+
+            <h2 class="section-title">О нас</h2>
+            <p class="about-text">
+                <strong>Food Construct</strong> - доставка бизнес-ланчей в Москве. Мы привезем вам горячую вкусную еду в любую точку города к назначенному времени.
+            </p>
+        </section>
+
+        <!-- блок Преимущества -->
+        <section class="section-features">
+            <h2 class="section-title">Преимущества Food Construct</h2>
+            <ul class="features-list">
+<!--                список-->
+                <li>Привозим обед к назначенному времени без опозданий</li>
+                <li>Надежно упаковываем блюда в удобные контейнеры бесплатно</li>
+                <li>Доставляем ланчи весь день с 7:00 до 23:00</li>
+            </ul>
+        </section>
+
+        <!-- Блок Популярные блюда (Таблица) -->
+        <section class="section-popular">
+            <h2 class="section-title">Топ-5 популярных блюд</h2>
+            <table class="dishes-table">
+<!--                создаем таблицу-->
+                <thead>
+                <tr>
+                    <th class="col-num"></th>
+                    <th class="col-name">Название</th>
+                    <th class="col-orders">Кол-во заказов в неделю</th>
+                    <th class="col-price">Цена</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td class="text-left">Лазанья</td>
+                    <td>185</td>
+                    <td>385₽</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td class="text-left">Том Ям с креветками</td>
+                    <td>161</td>
+                    <td>365₽</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td class="text-left">Норвежский суп</td>
+                    <td>144</td>
+                    <td>270₽</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td class="text-left">Жареная картошка с грибами</td>
+                    <td>132</td>
+                    <td>150₽</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td class="text-left">Котлеты из курицы с картофельным пюре</td>
+                    <td>128</td>
+                    <td>225₽</td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+</div>
+
+<!-- Футер с контактными данными -->
+<footer id="contacts" class="footer">
+    <div class="footer-container">
+        <p class="footer-text">
+            Позвонить нам <a href="tel:+70000000000" class="footer-link">+7-000-000-00-00</a>
+        </p>
+    </div>
+</footer>
+
+</body>
+</html>
