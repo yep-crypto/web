@@ -1,48 +1,32 @@
 <!DOCTYPE html>
-<!--говорит браузеру: «Этот документ написан по современным стандартам HTML5». Без этой строчки браузер может отображать страницу со старыми ошибками.-->
 
 <html lang="ru">
-<!--текст на русском-->
 <head>
-<!--    все что в этом блоке не видно, это настройки-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!--    настройка для телефонов и планшетов-->
     <title>Food Construct — доставка бизнес-ланчей</title>
-<!--    заголовок в самом верху-->
-
-    <!-- подключение шрифта Roboto из Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <!-- подключение файла стилей -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
-<!--а эту часть кода мы видим на сайте-->
+
 
 <div class="page-container">
-    <!-- тег <div> — это просто универсальная «коробка-обертка».
-    мы дали ей класс page-container, чтобы потом в CSS ограничить
-    сайт по ширине и поставить по центру экрана
-    (чтобы он не растягивался на гигантские мониторы).-->
     <header class="header">
         <h1 class="logo-title">Food Construct</h1>
-<!--        самый главный заголовок сайта-->
         <nav class="nav-menu">
-            <a href="#about" class="nav-link">О нас</a>
-            <a href="#lunch" class="nav-link">Собрать ланч</a>
-            <a href="#orders" class="nav-link">Заказы</a>
-            <!-- Якорная ссылка, ведущая к футеру -->
+            <a href="#about" class="nav-link active">О нас</a>
+            <a href="lunch.html" class="nav-link">Собрать ланч</a>
+            <a href="lunch.html#orders" class="nav-link">Заказы</a>
             <a href="#contacts" class="nav-link">Контакты</a>
+            <a href="loginform.html" class="nav-link">Войти</a>
         </nav>
-<!--        это навигация сайта, <a обозначает ссылку,
-а # не дает переходить на другую страницу,
-а просто перематывает в какой-то отдел-->
     </header>
 
-    <!-- основной контент страницы -->
+
     <main>
         <section id="about" class="section-about">
             <img src="banner.jpg"
@@ -54,22 +38,19 @@
             </p>
         </section>
 
-        <!-- блок Преимущества -->
         <section class="section-features">
             <h2 class="section-title">Преимущества Food Construct</h2>
             <ul class="features-list">
-<!--                список-->
                 <li>Привозим обед к назначенному времени без опозданий</li>
                 <li>Надежно упаковываем блюда в удобные контейнеры бесплатно</li>
                 <li>Доставляем ланчи весь день с 7:00 до 23:00</li>
             </ul>
         </section>
 
-        <!-- Блок Популярные блюда (Таблица) -->
+
         <section class="section-popular">
             <h2 class="section-title">Топ-5 популярных блюд</h2>
             <table class="dishes-table">
-<!--                создаем таблицу-->
                 <thead>
                 <tr>
                     <th class="col-num"></th>
@@ -115,14 +96,85 @@
     </main>
 </div>
 
-<!-- Футер с контактными данными -->
 <footer id="contacts" class="footer">
     <div class="footer-container">
         <p class="footer-text">
             Позвонить нам <a href="tel:+70000000000" class="footer-link">+7-000-000-00-00</a>
+            <a href="#feedback-modal" class="btn-modal-open">Обратная связь</a>
         </p>
     </div>
 </footer>
+
+
+<div id="feedback-modal" class="modal-overlay">
+    <div class="modal-card">
+        <a href="#" class="modal-close">&times;</a>
+
+        <h2>Форма обратной связи</h2>
+
+        <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="fullname">ФИО</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" placeholder="Введите email">
+            </div>
+
+            <div class="form-group">
+                <label>Откуда вы узнали о нас?</label>
+                <div class="radio-group">
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="friends" checked>
+                        Рассказали знакомые
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="internet">
+                        Реклама в интернете/соцсетях
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="poster">
+                        Постеры на улице
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="others">
+                        Другое
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Обращение</label>
+                <select id="category" name="category">
+                    <option value="proposal">Предложение</option>
+                    <option value="complaint">Жалоба</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="message">Текст сообщения</label>
+                <textarea id="message" name="message" rows="6" placeholder="Напишите ваше сообщение здесь"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="attachment">Вложение</label>
+                <input type="file" id="attachment" name="attachment">
+            </div>
+
+            <div class="form-group checkbox-group">
+                <label>
+                    <input type="checkbox" name="accept" required>
+                    Даю согласие на обработку персональных данных
+                </label>
+            </div>
+
+            <button type="submit" class="btn-submit">Отправить</button>
+        </form>
+    </div>
+</div>
 
 </body>
 </html>

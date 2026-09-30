@@ -1,0 +1,45 @@
+@media print {
+    .header,
+    .nav-menu,
+    .btn-add,
+    .form-buttons,
+    .footer {
+        display: none !important;
+    }
+
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        font-size: 11pt;
+    }
+
+    .page-container {
+        padding: 0 !important;
+        max-width: 100% !important;
+    }
+
+    .dish-card {
+        filter: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid;
+        margin-bottom: 15px;
+        padding: 15px !important;
+    }
+
+    .dishes-grid {
+        display: block !important;
+    }
+
+    .order-columns {
+        display: block !important;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        border-bottom: 1px solid #000 !important;
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+    }
+}

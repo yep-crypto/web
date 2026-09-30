@@ -1,0 +1,34 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.login-body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80") no-repeat center center / cover;
+}
+
+.login-card {
+    background: #ffffff;
+    width: 100%;
+    max-width: 380px;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.login-card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-card .btn-submit {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+}
