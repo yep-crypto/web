@@ -23,7 +23,7 @@
 }
 
 .dish-card:hover .btn-add {
-    background-color: #ffe6e2;
+    background-color: #e6e6e6;
 }
 
 .dish-image {
@@ -175,6 +175,17 @@
 
 .btn-action:hover {
     background-color: #f2f2f2;
+}
+
+.btn-submit-order {
+    background-color: tomato;
+    border-color: tomato;
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.btn-submit-order:hover {
+    background-color: #e5533a;
 }
 
 @media (max-width: 800px) {

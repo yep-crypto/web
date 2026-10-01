@@ -7,12 +7,11 @@
     <title>Food Construct — доставка бизнес-ланчей</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="print.css" media="print">
 </head>
-<body>
-
+<body class="site-body">
 
 <div class="page-container">
     <header class="header">
@@ -50,48 +49,50 @@
 
         <section class="section-popular">
             <h2 class="section-title">Топ-5 популярных блюд</h2>
-            <table class="dishes-table">
-                <thead>
-                <tr>
-                    <th class="col-num"></th>
-                    <th class="col-name">Название</th>
-                    <th class="col-orders">Кол-во заказов в неделю</th>
-                    <th class="col-price">Цена</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td class="text-left">Лазанья</td>
-                    <td>185</td>
-                    <td>385₽</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td class="text-left">Том Ям с креветками</td>
-                    <td>161</td>
-                    <td>365₽</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td class="text-left">Норвежский суп</td>
-                    <td>144</td>
-                    <td>270₽</td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td class="text-left">Жареная картошка с грибами</td>
-                    <td>132</td>
-                    <td>150₽</td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td class="text-left">Котлеты из курицы с картофельным пюре</td>
-                    <td>128</td>
-                    <td>225₽</td>
-                </tr>
-                </tbody>
-            </table>
+            <div class="table-wrapper">
+                <table class="dishes-table">
+                    <thead>
+                    <tr>
+                        <th class="col-num"></th>
+                        <th class="col-name">Название</th>
+                        <th class="col-orders">Кол-во заказов в неделю</th>
+                        <th class="col-price">Цена</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td class="text-left">Лазанья</td>
+                        <td>185</td>
+                        <td>385₽</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td class="text-left">Том Ям с креветками</td>
+                        <td>161</td>
+                        <td>365₽</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td class="text-left">Норвежский суп</td>
+                        <td>144</td>
+                        <td>270₽</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td class="text-left">Жареная картошка с грибами</td>
+                        <td>132</td>
+                        <td>150₽</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td class="text-left">Котлеты из курицы с картофельным пюре</td>
+                        <td>128</td>
+                        <td>225₽</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
     </main>
 </div>
@@ -108,25 +109,25 @@
 
 <div id="feedback-modal" class="modal-overlay">
     <div class="modal-card">
-        <a href="#" class="modal-close">&times;</a>
+        <a href="#close" class="modal-close">&times;</a>
 
         <h2>Форма обратной связи</h2>
 
         <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
 
-            <div class="form-group">
+            <div class="modal-group">
                 <label for="fullname">ФИО</label>
                 <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО">
             </div>
 
-            <div class="form-group">
+            <div class="modal-group">
                 <label for="email">Электронная почта</label>
                 <input type="email" id="email" name="email" placeholder="Введите email">
             </div>
 
-            <div class="form-group">
+            <div class="modal-group">
                 <label>Откуда вы узнали о нас?</label>
-                <div class="radio-group">
+                <div class="modal-radios">
                     <label class="radio-label">
                         <input type="radio" name="source" value="friends" checked>
                         Рассказали знакомые
@@ -146,7 +147,7 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="modal-group">
                 <label for="category">Обращение</label>
                 <select id="category" name="category">
                     <option value="proposal">Предложение</option>
@@ -154,24 +155,24 @@
                 </select>
             </div>
 
-            <div class="form-group">
+            <div class="modal-group">
                 <label for="message">Текст сообщения</label>
                 <textarea id="message" name="message" rows="6" placeholder="Напишите ваше сообщение здесь"></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="modal-group">
                 <label for="attachment">Вложение</label>
                 <input type="file" id="attachment" name="attachment">
             </div>
 
-            <div class="form-group checkbox-group">
+            <div class="modal-group modal-checkbox">
                 <label>
                     <input type="checkbox" name="accept" required>
                     Даю согласие на обработку персональных данных
                 </label>
             </div>
 
-            <button type="submit" class="btn-submit">Отправить</button>
+            <button type="submit" class="btn-modal-submit">Отправить</button>
         </form>
     </div>
 </div>

@@ -8,8 +8,20 @@ html, body {
     height: 100%;
 }
 
+button,
+input,
+select,
+textarea {
+    font-family: inherit;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    accent-color: tomato;
+}
+
 .site-body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto Condensed', sans-serif;
     color: #222222;
     background-color: #ffffff;
     line-height: 1.5;
@@ -27,6 +39,11 @@ html, body {
 
 /* навигация */
 .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
     margin-bottom: 25px;
 }
 
@@ -34,7 +51,7 @@ html, body {
     font-size: 32px;
     font-weight: 700;
     color: #000000;
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .nav-menu {
@@ -71,6 +88,7 @@ html, body {
     border-radius: 12px;
 }
 
+
 .section-title {
     font-size: 24px;
     font-weight: 700;
@@ -78,7 +96,7 @@ html, body {
 }
 
 .about-text {
-    font-size: 15px;
+    font-size: 17px;
     color: #333333;
 }
 
@@ -101,11 +119,14 @@ html, body {
     max-width: 650px;
     border-collapse: collapse;
     margin-top: 10px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #eeeeee;
 }
 
 .dishes-table th,
 .dishes-table td {
-    border: 1px solid #555555;
+    border-bottom: 1px solid #eeeeee;
     padding: 10px 14px;
     text-align: center;
 }
@@ -113,10 +134,19 @@ html, body {
 .dishes-table th {
     font-weight: 700;
     color: #000000;
+    background-color: #f1eee9;
 }
 
 .dishes-table .text-left {
     text-align: left;
+}
+
+.dishes-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.dishes-table tbody tr:hover {
+    background-color: #f7f7f7;
 }
 
 .col-num {
@@ -158,7 +188,7 @@ html, body {
 /* обратная связь */
 .btn-modal-open {
     display: inline-block;
-    margin-left: 15px;
+    margin-left: auto;
     padding: 6px 14px;
     background-color: transparent;
     color: white;
@@ -189,6 +219,7 @@ html, body {
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 9999;
+    backdrop-filter: blur(4px);
 }
 
 .modal-overlay:target {
@@ -196,16 +227,21 @@ html, body {
     pointer-events: auto;
 }
 
+html:has(.modal-overlay:target) {
+    overflow: hidden;
+}
+
 .modal-card {
     background: #ffffff;
     width: 90%;
-    max-width: 440px;
+    max-width: 480px;
     max-height: 90vh;
     overflow-y: auto;
-    padding: 25px 30px;
-    border-radius: 12px;
+    padding: 32px 36px;
+    border-radius: 20px;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overscroll-behavior: contain;
 }
 
 .modal-close {
@@ -223,20 +259,20 @@ html, body {
 }
 
 .modal-card h2 {
-    font-size: 22px;
-    margin-bottom: 16px;
+    font-size: 26px;
+    margin-bottom: 22px;
     font-weight: 700;
 }
 
 .modal-group {
-    margin-bottom: 12px;
+    margin-bottom: 16px;
 }
 
 .modal-group label {
     display: block;
-    font-size: 13px;
-    font-weight: 600;
-    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 6px;
 }
 
 .modal-group input[type="text"],
@@ -244,18 +280,21 @@ html, body {
 .modal-group select,
 .modal-group textarea {
     width: 100%;
-    padding: 8px 10px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    font-size: 13px;
+    padding: 11px 14px;
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    font-size: 15px;
     font-family: inherit;
     outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
 }
 
 .modal-group input:focus,
 .modal-group select:focus,
 .modal-group textarea:focus {
     border-color: tomato;
+    background-color: #ffffff;
 }
 
 .modal-group textarea {
@@ -264,8 +303,9 @@ html, body {
 
 .modal-radios {
     display: flex;
-    gap: 15px;
-    font-size: 13px;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 15px;
     margin-top: 4px;
 }
 
@@ -281,31 +321,36 @@ html, body {
     display: flex;
     align-items: center;
     gap: 8px;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: normal;
     cursor: pointer;
 }
 
 .btn-modal-submit {
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     background-color: tomato;
     color: white;
     border: none;
-    border-radius: 6px;
+    border-radius: 10px;
     font-weight: bold;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 16px;
     margin-top: 6px;
     transition: opacity 0.2s ease;
 }
 
 .btn-modal-submit:hover {
-    opacity: 0.9;
+    background-color: #e5533a;
 }
 
 /* печать */
 @media (max-width: 800px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
     .main-image {
         width: 500px;
         max-width: 100%;
@@ -343,7 +388,7 @@ html, body {
 
     .dishes-table th,
     .dishes-table td {
-        font-size: 13px;
+        font-size: 14px;
         padding: 8px 10px;
     }
 }
@@ -351,7 +396,7 @@ html, body {
 @media (max-width: 400px) {
     .dishes-table th,
     .dishes-table td {
-        font-size: 11px;
+        font-size: 12px;
         padding: 6px 6px;
     }
 }
