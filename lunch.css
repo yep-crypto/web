@@ -212,3 +212,21 @@
         font-size: 24px;
     }
 }
+
+.dish-card.selected {
+    border: 2px solid tomato;
+}
+
+.order-item {
+    margin-bottom: 15px;
+}
+
+.order-item-title {
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.order-empty {
+    margin-bottom: 20px;
+}

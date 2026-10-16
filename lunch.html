@@ -29,86 +29,20 @@
     <main>
         <section class="category-section">
             <h2 class="section-title">Выберите суп</h2>
-            <div class="dishes-grid">
-                <div class="dish-card">
-                    <img src="гаспачо.jpg" alt="Гаспачо" class="dish-image">
-                    <p class="dish-price">195₽</p>
-                    <p class="dish-name">Гаспачо томатный</p>
-                    <p class="dish-weight">350 г</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-                <div class="dish-card">
-                    <img src="крем%20суп.jpeg" alt="Грибной суп" class="dish-image">
-                    <p class="dish-price">185₽</p>
-                    <p class="dish-name">Грибной крем-суп</p>
-                    <p class="dish-weight">330 г</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-                <div class="dish-card">
-                    <img src="борщ.jpg" alt="Борщ" class="dish-image">
-                    <p class="dish-price">270₽</p>
-                    <p class="dish-name">Борщ</p>
-                    <p class="dish-weight">330 г</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-            </div>
+            <div class="dishes-grid" data-category="soup"></div>
         </section>
 
         <section class="category-section">
             <h2 class="section-title">Выберите главное блюдо</h2>
-            <div class="dishes-grid">
-                <div class="dish-card">
-                    <img src="картошка%20с%20грибами.jpg" alt="Жареная картошка" class="dish-image">
-                    <p class="dish-price">150₽</p>
-                    <p class="dish-name">Жареная картошка с лесными грибами</p>
-                    <p class="dish-weight">250 г</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-                <div class="dish-card">
-                    <img src="лазанья.webp" alt="Лазанья" class="dish-image">
-                    <p class="dish-price">385₽</p>
-                    <p class="dish-name">Лазанья классическая</p>
-                    <p class="dish-weight">310 г</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-                <div class="dish-card">
-                    <img src="котлеты.jpg" alt="Котлеты" class="dish-image">
-                    <p class="dish-price">225₽</p>
-                    <p class="dish-name">Котлеты из нежной курицы с картофельным пюре</p>
-                    <p class="dish-weight">280 г</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-            </div>
+            <div class="dishes-grid" data-category="main"></div>
         </section>
 
         <section class="category-section">
             <h2 class="section-title">Выберите напиток</h2>
-            <div class="dishes-grid">
-                <div class="dish-card">
-                    <img src="orange-juice.jpg" alt="Апельсиновый сок" class="dish-image">
-                    <p class="dish-price">120₽</p>
-                    <p class="dish-name">Апельсиновый сок</p>
-                    <p class="dish-weight">300 мл</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-                <div class="dish-card">
-                    <img src="apple-juice.jpg" alt="Яблочный сок" class="dish-image">
-                    <p class="dish-price">90₽</p>
-                    <p class="dish-name">Яблочный сок</p>
-                    <p class="dish-weight">300 мл</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-                <div class="dish-card">
-                    <img src="carrot-juice.jpg" alt="Морковный сок" class="dish-image">
-                    <p class="dish-price">110₽</p>
-                    <p class="dish-name">Морковный сок</p>
-                    <p class="dish-weight">300 мл</p>
-                    <button type="button" class="btn-add">Добавить</button>
-                </div>
-            </div>
+            <div class="dishes-grid" data-category="drink"></div>
         </section>
 
-        <section class="order-section" id="orders">
+        <div class="order-section" id="orders">
             <h2 class="order-heading">Сделать заказ</h2>
 
             <form action="https://httpbin.org/post" method="POST" class="order-form">
@@ -116,42 +50,36 @@
                     <div class="order-column">
                         <h3 class="column-subtitle">Ваш заказ</h3>
 
-                        <div class="form-field">
-                            <label for="soup-select">Суп</label>
-                            <select id="soup-select" name="soup">
-                                <option value="">-- Выберите суп --</option>
-                                <option value="gaspacho">Гаспачо томатный</option>
-                                <option value="mushroom">Грибной крем-суп</option>
-                                <option value="norwegian">Борщ</option>
-                            </select>
+                        <p id="nothing-selected" class="order-empty">Ничего не выбрано</p>
+
+                        <div id="order-details">
+                            <div class="order-item">
+                                <p class="order-item-title">Суп</p>
+                                <p id="order-soup">Блюдо не выбрано</p>
+                            </div>
+                            <div class="order-item">
+                                <p class="order-item-title">Главное блюдо</p>
+                                <p id="order-main">Блюдо не выбрано</p>
+                            </div>
+                            <div class="order-item">
+                                <p class="order-item-title">Напиток</p>
+                                <p id="order-drink">Напиток не выбран</p>
+                            </div>
+                            <div class="order-item">
+                                <p class="order-item-title">Стоимость заказа</p>
+                                <p id="order-total">0₽</p>
+                            </div>
                         </div>
 
-                        <div class="form-field">
-                            <label for="main-select">Главное блюдо</label>
-                            <select id="main-select" name="main_dish">
-                                <option value="">-- Выберите главное блюдо --</option>
-                                <option value="potato">Жареная картошка с грибами</option>
-                                <option value="lasagna">Лазанья классическая</option>
-                                <option value="cutlets">Котлеты с пюре</option>
-                            </select>
-                        </div>
-
-                        <div class="form-field">
-                            <label for="drink-select">Напиток</label>
-                            <select id="drink-select" name="drink">
-                                <option value="">-- Выберите напиток --</option>
-                                <option value="orange">Апельсиновый сок</option>
-                                <option value="apple">Яблочный сок</option>
-                                <option value="carrot">Морковный сок</option>
-                            </select>
-                        </div>
+                        <input type="hidden" name="soup"  id="input-soup">
+                        <input type="hidden" name="main_dish"  id="input-main">
+                        <input type="hidden" name="drink" id="input-drink">
 
                         <div class="form-field">
                             <label for="order-comments">Комментарии к заказу</label>
                             <textarea id="order-comments" name="comments" rows="6"></textarea>
                         </div>
                     </div>
-
                     <div class="order-column">
                         <h3 class="column-subtitle">Ваши данные</h3>
 
@@ -204,7 +132,7 @@
                     </div>
                 </div>
             </form>
-        </section>
+        </div>
     </main>
 </div>
 
@@ -286,6 +214,10 @@
         </form>
     </div>
 </div>
+
+<script src="dishes.js"></script>
+<script src="display.js"></script>
+<script src="order.js"></script>
 
 </body>
 </html>
