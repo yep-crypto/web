@@ -29,17 +29,51 @@
     <main>
         <section class="category-section">
             <h2 class="section-title">Выберите суп</h2>
+            <div class="filters">
+                <button type="button" class="filter-btn" data-kind="fish">Рыбный</button>
+                <button type="button" class="filter-btn" data-kind="meat">Мясной</button>
+                <button type="button" class="filter-btn" data-kind="veg">Вегетарианский</button>
+            </div>
             <div class="dishes-grid" data-category="soup"></div>
         </section>
 
         <section class="category-section">
             <h2 class="section-title">Выберите главное блюдо</h2>
+            <div class="filters">
+                <button type="button" class="filter-btn" data-kind="fish">Рыбное</button>
+                <button type="button" class="filter-btn" data-kind="meat">Мясное</button>
+                <button type="button" class="filter-btn" data-kind="veg">Вегетарианское</button>
+            </div>
             <div class="dishes-grid" data-category="main"></div>
         </section>
 
         <section class="category-section">
+            <h2 class="section-title">Выберите салат или стартер</h2>
+            <div class="filters">
+                <button type="button" class="filter-btn" data-kind="fish">Рыбный</button>
+                <button type="button" class="filter-btn" data-kind="meat">Мясной</button>
+                <button type="button" class="filter-btn" data-kind="veg">Вегетарианский</button>
+            </div>
+            <div class="dishes-grid" data-category="salat"></div>
+        </section>
+
+        <section class="category-section">
             <h2 class="section-title">Выберите напиток</h2>
+            <div class="filters">
+                <button type="button" class="filter-btn" data-kind="cold">Холодный</button>
+                <button type="button" class="filter-btn" data-kind="hot">Горячий</button>
+            </div>
             <div class="dishes-grid" data-category="drink"></div>
+        </section>
+
+        <section class="category-section">
+            <h2 class="section-title">Выберите десерт</h2>
+            <div class="filters">
+                <button type="button" class="filter-btn" data-kind="small">Маленькая порция</button>
+                <button type="button" class="filter-btn" data-kind="medium">Средняя порция</button>
+                <button type="button" class="filter-btn" data-kind="large">Большая порция</button>
+            </div>
+            <div class="dishes-grid" data-category="desert"></div>
         </section>
 
         <div class="order-section" id="orders">
@@ -62,8 +96,16 @@
                                 <p id="order-main">Блюдо не выбрано</p>
                             </div>
                             <div class="order-item">
+                                <p class="order-item-title">Салат или стартер</p>
+                                <p id="order-salat">Блюдо не выбрано</p>
+                            </div>
+                            <div class="order-item">
                                 <p class="order-item-title">Напиток</p>
                                 <p id="order-drink">Напиток не выбран</p>
+                            </div>
+                            <div class="order-item">
+                                <p class="order-item-title">Десерт</p>
+                                <p id="order-desert">Десерт не выбран</p>
                             </div>
                             <div class="order-item">
                                 <p class="order-item-title">Стоимость заказа</p>
@@ -71,9 +113,11 @@
                             </div>
                         </div>
 
-                        <input type="hidden" name="soup"  id="input-soup">
-                        <input type="hidden" name="main_dish"  id="input-main">
-                        <input type="hidden" name="drink" id="input-drink">
+                        <input type="hidden" name="soup"      id="input-soup">
+                        <input type="hidden" name="main_dish" id="input-main">
+                        <input type="hidden" name="salad"     id="input-salat">
+                        <input type="hidden" name="drink"     id="input-drink">
+                        <input type="hidden" name="dessert"   id="input-desert">
 
                         <div class="form-field">
                             <label for="order-comments">Комментарии к заказу</label>
@@ -218,6 +262,7 @@
 <script src="dishes.js"></script>
 <script src="display.js"></script>
 <script src="order.js"></script>
+<script src="filter.js"></script>
 
 </body>
 </html>

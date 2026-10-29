@@ -1,20 +1,24 @@
 const order = {
     soup: null,
     main: null,
+    salat: null,
     drink: null,
+    desert: null,
 };
 
 const emptyText = {
     soup: 'Блюдо не выбрано',
     main: 'Блюдо не выбрано',
+    salat: 'Блюдо не выбрано',
     drink: 'Напиток не выбран',
+    desert: 'Десерт не выбран',
 };
 
 function updateOrder() {
     let total = 0;
     let somethingSelected = false;
 
-    ['soup', 'main', 'drink'].forEach((category) => {
+    ['soup', 'main', 'salat', 'drink', 'desert'].forEach((category) => {
         const dish = order[category];
         const text = document.getElementById(`order-${category}`);
         const input = document.getElementById(`input-${category}`);
@@ -56,7 +60,7 @@ document.querySelectorAll('.dish-card').forEach((card) => {
 });
 
 document.querySelector('.order-form').addEventListener('reset', () => {
-    order.soup = order.main = order.drink = null;
+    order.soup = order.main = order.salat = order.drink = order.desert = null;
     document.querySelectorAll('.dish-card.selected').forEach((c) => {
         c.classList.remove('selected');
         c.querySelector('.btn-add').textContent = 'Добавить';
