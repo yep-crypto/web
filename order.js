@@ -40,24 +40,26 @@ function updateOrder() {
     document.getElementById('order-details').style.display   = somethingSelected ? 'block' : 'none';
 }
 
-document.querySelectorAll('.dish-card').forEach((card) => {
-    card.querySelector('.btn-add').addEventListener('click', () => {
-        const dish = dishes.find((d) => d.keyword === card.dataset.dish);
+function initOrderButtons() {
+    document.querySelectorAll('.dish-card').forEach((card) => {
+        card.querySelector('.btn-add').addEventListener('click', () => {
+            const dish = dishes.find((d) => d.keyword === card.dataset.dish);
 
-        order[dish.category] = dish;
+            order[dish.category] = dish;
 
-        document
-            .querySelectorAll(`.dishes-grid[data-category="${dish.category}"] .dish-card`)
-            .forEach((c) => {
-                c.classList.remove('selected');
-                c.querySelector('.btn-add').textContent = 'Добавить';
-            });
-        card.classList.add('selected');
-        card.querySelector('.btn-add').textContent = 'Добавлено ✓';
+            document
+                .querySelectorAll(`.dishes-grid[data-category="${dish.category}"] .dish-card`)
+                .forEach((c) => {
+                    c.classList.remove('selected');
+                    c.querySelector('.btn-add').textContent = 'Добавить';
+                });
+            card.classList.add('selected');
+            card.querySelector('.btn-add').textContent = 'Добавлено ✓';
 
-        updateOrder();
+            updateOrder();
+        });
     });
-});
+}
 
 document.querySelector('.order-form').addEventListener('reset', () => {
     order.soup = order.main = order.salat = order.drink = order.desert = null;
