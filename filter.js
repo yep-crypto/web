@@ -8,7 +8,7 @@ document.querySelectorAll('.category-section').forEach((section) => {
             buttons.forEach((b) => b.classList.remove('active'));
 
             if (wasActive) {
-                cards.forEach((c) => (c.style.display = ''));      // повторный клик — показать всё
+                cards.forEach((c) => (c.style.display = ''));
             } else {
                 btn.classList.add('active');
                 cards.forEach((c) => {
