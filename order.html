@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Construct — Оформить заказ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lunch.css">
+</head>
+<body class="site-body">
+
+<div class="page-container">
+    <header class="header">
+        <h1 class="logo-title">Food Construct</h1>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">О нас</a>
+            <a href="lunch.html" class="nav-link">Собрать ланч</a>
+            <a href="order.html" class="nav-link active">Оформить заказ</a>
+            <a href="#contacts" class="nav-link">Контакты</a>
+            <a href="loginform.html" class="nav-link">Войти</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="category-section">
+            <h2 class="section-title">Состав заказа</h2>
+
+            <p id="order-empty" class="order-empty-message">
+                Ничего не выбрано. Чтобы добавить блюда в заказ, перейдите на страницу
+                <a href="lunch.html">Собрать ланч</a>.
+            </p>
+
+            <div class="dishes-grid" id="order-dishes"></div>
+        </section>
+
+        <div class="order-section">
+            <h2 class="order-heading">Оформление заказа</h2>
+
+            <form class="order-form">
+                <div class="order-columns">
+                    <div class="order-column">
+                        <h3 class="column-subtitle">Ваш заказ</h3>
+
+                        <div class="order-item">
+                            <p class="order-item-title">Суп</p>
+                            <p id="order-soup">Не выбран</p>
+                        </div>
+                        <div class="order-item">
+                            <p class="order-item-title">Главное блюдо</p>
+                            <p id="order-main">Не выбрано</p>
+                        </div>
+                        <div class="order-item">
+                            <p class="order-item-title">Салат/стартер</p>
+                            <p id="order-salat">Не выбран</p>
+                        </div>
+                        <div class="order-item">
+                            <p class="order-item-title">Напиток</p>
+                            <p id="order-drink">Не выбран</p>
+                        </div>
+                        <div class="order-item">
+                            <p class="order-item-title">Десерт</p>
+                            <p id="order-desert">Не выбран</p>
+                        </div>
+                        <div class="order-item">
+                            <p class="order-item-title">Стоимость заказа</p>
+                            <p id="order-total">0₽</p>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="order-comments">Комментарии к заказу</label>
+                            <textarea id="order-comments" name="comment" rows="6"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="order-column">
+                        <h3 class="column-subtitle">Ваши данные</h3>
+
+                        <div class="form-field">
+                            <label for="cust-name">Имя</label>
+                            <input type="text" id="cust-name" name="full_name" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="cust-email">Email</label>
+                            <input type="email" id="cust-email" name="email" required>
+                        </div>
+
+                        <div class="form-checkbox">
+                            <label>
+                                <input type="checkbox" name="subscribe" value="1" checked>
+                                Получать информацию о скидках и акциях
+                            </label>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="cust-phone">Номер телефона</label>
+                            <input type="tel" id="cust-phone" name="phone" required>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="cust-address">Адрес доставки</label>
+                            <input type="text" id="cust-address" name="delivery_address" required>
+                            <small class="field-hint">Доставка осуществляется только по Москве</small>
+                        </div>
+
+                        <div class="form-field">
+                            <label>Время доставки:</label>
+                            <div class="radio-stack">
+                                <label><input type="radio" name="delivery_type" value="now" checked> Как можно скорее</label>
+                                <label><input type="radio" name="delivery_type" value="by_time"> К указанному времени</label>
+                            </div>
+                        </div>
+
+                        <div class="form-field">
+                            <label for="delivery-time-input">Укажите время доставки</label>
+                            <input type="time" id="delivery-time-input" name="delivery_time" min="07:00" max="23:00" step="300">
+                            <small class="field-hint">Доступное время доставки с 7:00 до 23:00</small>
+                        </div>
+
+                        <div class="form-buttons">
+                            <button type="reset" class="btn-action btn-reset">Сбросить</button>
+                            <button type="submit" class="btn-action btn-submit-order">Отправить</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<footer id="contacts" class="footer">
+    <div class="footer-container">
+        <p class="footer-text">
+            Позвонить нам <a href="tel:+70000000000" class="footer-link">+7-000-000-00-00</a>
+            <a href="#feedback-modal" class="btn-modal-open">Обратная связь</a>
+        </p>
+    </div>
+</footer>
+
+<div id="feedback-modal" class="modal-overlay">
+    <div class="modal-card">
+        <a href="#" class="modal-close">&times;</a>
+
+        <h2>Форма обратной связи</h2>
+
+        <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+
+            <div class="modal-group">
+                <label for="fullname">ФИО</label>
+                <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО">
+            </div>
+
+            <div class="modal-group">
+                <label for="email">Электронная почта</label>
+                <input type="email" id="email" name="email" placeholder="Введите email">
+            </div>
+
+            <div class="modal-group">
+                <label>Откуда вы узнали о нас?</label>
+                <div class="modal-radios">
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="friends" checked>
+                        Рассказали знакомые
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="internet">
+                        Реклама в интернете/соцсетях
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="poster">
+                        Постеры на улице
+                    </label>
+                    <label class="radio-label">
+                        <input type="radio" name="source" value="others">
+                        Другое
+                    </label>
+                </div>
+            </div>
+
+            <div class="modal-group">
+                <label for="category">Обращение</label>
+                <select id="category" name="category">
+                    <option value="proposal">Предложение</option>
+                    <option value="complaint">Жалоба</option>
+                </select>
+            </div>
+
+            <div class="modal-group">
+                <label for="message">Текст сообщения</label>
+                <textarea id="message" name="message" rows="6" placeholder="Напишите ваше сообщение здесь"></textarea>
+            </div>
+
+            <div class="modal-group">
+                <label for="attachment">Вложение</label>
+                <input type="file" id="attachment" name="attachment">
+            </div>
+
+            <div class="modal-group modal-checkbox">
+                <label>
+                    <input type="checkbox" name="accept" required>
+                    Даю согласие на обработку персональных данных
+                </label>
+            </div>
+
+            <button type="submit" class="btn-modal-submit">Отправить</button>
+        </form>
+    </div>
+</div>
+
+<script src="common.js"></script>
+<script src="verify.js"></script>
+<script src="check.js"></script>
+
+</body>
+</html>

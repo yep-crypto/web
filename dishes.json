@@ -1,5 +1,6 @@
 [
   {
+    "id": "1",
     "keyword": "gazpacho",
     "name": "Гаспачо томатный",
     "price": 195,
@@ -9,6 +10,7 @@
     "kind": "veg"
   },
   {
+    "id": "2",
     "keyword": "mushroom_soup",
     "name": "Грибной крем-суп",
     "price": 185,
@@ -18,6 +20,7 @@
     "kind": "veg"
   },
   {
+    "id": "3",
     "keyword": "borscht",
     "name": "Борщ",
     "price": 270,
@@ -27,6 +30,7 @@
     "kind": "meat"
   },
   {
+    "id": "4",
     "keyword": "chicken_soup",
     "name": "Куриный суп",
     "price": 195,
@@ -36,6 +40,7 @@
     "kind": "meat"
   },
   {
+    "id": "5",
     "keyword": "ukha",
     "name": "Уха",
     "price": 260,
@@ -45,6 +50,7 @@
     "kind": "fish"
   },
   {
+    "id": "6",
     "keyword": "tom_yam",
     "name": "Том-ям с креветками",
     "price": 370,
@@ -54,6 +60,7 @@
     "kind": "fish"
   },
   {
+    "id": "7",
     "keyword": "fried_potatoes",
     "name": "Жареная картошка с лесными грибами",
     "price": 150,
@@ -63,6 +70,7 @@
     "kind": "veg"
   },
   {
+    "id": "8",
     "keyword": "lasagna",
     "name": "Лазанья классическая",
     "price": 385,
@@ -72,6 +80,7 @@
     "kind": "meat"
   },
   {
+    "id": "9",
     "keyword": "chicken_cutlets",
     "name": "Котлеты из нежной курицы с картофельным пюре",
     "price": 225,
@@ -81,6 +90,7 @@
     "kind": "meat"
   },
   {
+    "id": "10",
     "keyword": "salmon_grill",
     "name": "Лосось на гриле с овощами",
     "price": 420,
@@ -90,6 +100,7 @@
     "kind": "fish"
   },
   {
+    "id": "11",
     "keyword": "cod_rice",
     "name": "Треска с рисом",
     "price": 310,
@@ -99,6 +110,7 @@
     "kind": "fish"
   },
   {
+    "id": "12",
     "keyword": "vegetable_stew",
     "name": "Овощное рагу",
     "price": 170,
@@ -108,6 +120,7 @@
     "kind": "veg"
   },
   {
+    "id": "13",
     "keyword": "tuna_salad",
     "name": "Салат с тунцом",
     "price": 130,
@@ -117,6 +130,7 @@
     "kind": "fish"
   },
   {
+    "id": "14",
     "keyword": "caesar_salad",
     "name": "Салат Цезарь",
     "price": 120,
@@ -126,6 +140,7 @@
     "kind": "meat"
   },
   {
+    "id": "15",
     "keyword": "veg_salad",
     "name": "Овощной салат",
     "price": 90,
@@ -135,6 +150,7 @@
     "kind": "veg"
   },
   {
+    "id": "16",
     "keyword": "caprese",
     "name": "Капрезе",
     "price": 160,
@@ -144,6 +160,7 @@
     "kind": "veg"
   },
   {
+    "id": "17",
     "keyword": "potato_fri",
     "name": "Картошка фри",
     "price": 70,
@@ -153,6 +170,7 @@
     "kind": "veg"
   },
   {
+    "id": "18",
     "keyword": "potato_country",
     "name": "Картошка по-деревенски",
     "price": 70,
@@ -162,6 +180,7 @@
     "kind": "veg"
   },
   {
+    "id": "19",
     "keyword": "orange_juice",
     "name": "Апельсиновый сок",
     "price": 120,
@@ -171,6 +190,7 @@
     "kind": "cold"
   },
   {
+    "id": "20",
     "keyword": "apple_juice",
     "name": "Яблочный сок",
     "price": 90,
@@ -180,6 +200,7 @@
     "kind": "cold"
   },
   {
+    "id": "21",
     "keyword": "carrot_juice",
     "name": "Морковный сок",
     "price": 110,
@@ -189,6 +210,7 @@
     "kind": "cold"
   },
   {
+    "id": "22",
     "keyword": "latte",
     "name": "Латте",
     "price": 150,
@@ -198,6 +220,7 @@
     "kind": "hot"
   },
   {
+    "id": "23",
     "keyword": "black_tea",
     "name": "Чёрный чай",
     "price": 90,
@@ -207,6 +230,7 @@
     "kind": "hot"
   },
   {
+    "id": "24",
     "keyword": "green_tea",
     "name": "Зелёный чай",
     "price": 90,
@@ -216,6 +240,7 @@
     "kind": "hot"
   },
   {
+    "id": "25",
     "keyword": "kievski",
     "name": "Торт Киевский",
     "price": 230,
@@ -225,6 +250,7 @@
     "kind": "small"
   },
   {
+    "id": "26",
     "keyword": "bird_milk",
     "name": "Торт Птичье молоко",
     "price": 180,
@@ -234,6 +260,7 @@
     "kind": "small"
   },
   {
+    "id": "27",
     "keyword": "napoleon",
     "name": "Торт Наполеон",
     "price": 220,
@@ -243,6 +270,7 @@
     "kind": "small"
   },
   {
+    "id": "28",
     "keyword": "praga",
     "name": "Торт Прага",
     "price": 250,
@@ -252,6 +280,7 @@
     "kind": "medium"
   },
   {
+    "id": "29",
     "keyword": "donuts_3",
     "name": "Пончики (3 штуки)",
     "price": 300,
@@ -261,6 +290,7 @@
     "kind": "medium"
   },
   {
+    "id": "30",
     "keyword": "donuts_6",
     "name": "Пончики (6 штук)",
     "price": 600,

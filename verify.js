@@ -47,12 +47,3 @@ function showNotification(text) {
     box.append(message, button);
     document.body.append(box);
 }
-
-document.querySelector('.order-form').addEventListener('submit', (event) => {
-    const text = getNotificationText();
-
-    if (text) {
-        event.preventDefault();
-        showNotification(text);
-    }
-});

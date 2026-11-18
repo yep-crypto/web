@@ -6,68 +6,50 @@ const order = {
     desert: null,
 };
 
-const emptyText = {
-    soup: 'Блюдо не выбрано',
-    main: 'Блюдо не выбрано',
-    salat: 'Блюдо не выбрано',
-    drink: 'Напиток не выбран',
-    desert: 'Десерт не выбран',
-};
+function markSelectedCards() {
+    document.querySelectorAll('.dish-card').forEach((card) => {
+        const chosen = order[card.dataset.category];
+        const isSelected = chosen && String(chosen.id) === card.dataset.id;
 
-function updateOrder() {
+        card.classList.toggle('selected', isSelected);
+        card.querySelector('.btn-add').textContent = isSelected ? 'Добавлено ✓' : 'Добавить';
+    });
+}
+
+function updatePanel() {
     let total = 0;
     let somethingSelected = false;
 
-    ['soup', 'main', 'salat', 'drink', 'desert'].forEach((category) => {
-        const dish = order[category];
-        const text = document.getElementById(`order-${category}`);
-        const input = document.getElementById(`input-${category}`);
-
-        if (dish) {
-            text.textContent = `${dish.name} ${dish.price}₽`;
-            input.value = dish.keyword;
-            total += dish.price;
+    CATEGORIES.forEach((category) => {
+        if (order[category]) {
+            total += order[category].price;
             somethingSelected = true;
-        } else {
-            text.textContent = emptyText[category];
-            input.value = '';
         }
     });
 
-    document.getElementById('order-total').textContent = `${total}₽`;
+    document.getElementById('panel-total').textContent = `${total}₽`;
+    document.getElementById('checkout-panel').style.display = somethingSelected ? '' : 'none';
 
-    document.getElementById('nothing-selected').style.display = somethingSelected ? 'none' : 'block';
-    document.getElementById('order-details').style.display   = somethingSelected ? 'block' : 'none';
+    const isValidCombo = getNotificationText() === null;
+    document.getElementById('checkout-link').classList.toggle('disabled', !isValidCombo);
 }
 
 function initOrderButtons() {
     document.querySelectorAll('.dish-card').forEach((card) => {
         card.querySelector('.btn-add').addEventListener('click', () => {
-            const dish = dishes.find((d) => d.keyword === card.dataset.dish);
+            const dish = dishes.find((d) => String(d.id) === card.dataset.id);
 
             order[dish.category] = dish;
-
-            document
-                .querySelectorAll(`.dishes-grid[data-category="${dish.category}"] .dish-card`)
-                .forEach((c) => {
-                    c.classList.remove('selected');
-                    c.querySelector('.btn-add').textContent = 'Добавить';
-                });
-            card.classList.add('selected');
-            card.querySelector('.btn-add').textContent = 'Добавлено ✓';
-
-            updateOrder();
+            saveOrder(order);
+            markSelectedCards();
+            updatePanel();
         });
     });
 }
 
-document.querySelector('.order-form').addEventListener('reset', () => {
-    order.soup = order.main = order.salat = order.drink = order.desert = null;
-    document.querySelectorAll('.dish-card.selected').forEach((c) => {
-        c.classList.remove('selected');
-        c.querySelector('.btn-add').textContent = 'Добавить';
-    });
-    setTimeout(updateOrder);
+document.getElementById('checkout-link').addEventListener('click', (event) => {
+    if (event.currentTarget.classList.contains('disabled')) {
+        event.preventDefault();
+        showNotification(getNotificationText());
+    }
 });
-
-updateOrder();
