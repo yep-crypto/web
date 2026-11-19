@@ -1,0 +1,246 @@
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Construct — Оформить заказ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lunch.css">
+  <link rel="stylesheet" href="orders.css">
+</head>
+<body class="site-body">
+
+<div class="page-container">
+  <header class="header">
+    <h1 class="logo-title">Food Construct</h1>
+    <nav class="nav-menu">
+      <a href="index.html" class="nav-link">О нас</a>
+      <a href="lunch.html" class="nav-link">Собрать ланч</a>
+      <a href="order.html" class="nav-link">Оформить заказ</a>
+      <a href="orders.html" class="nav-link active">Заказы</a>
+      <a href="#contacts" class="nav-link">Контакты</a>
+      <a href="loginform.html" class="nav-link">Войти</a>
+    </nav>
+  </header>
+
+<main>
+  <h2 class="section-title">История заказов</h2>
+
+  <div class="orders-table-wrapper">
+    <table class="orders-table">
+      <thead>
+      <tr>
+        <th>№</th>
+        <th>Дата оформления</th>
+        <th>Состав заказа</th>
+        <th>Стоимость</th>
+        <th>Время доставки</th>
+        <th>Действия</th>
+      </tr>
+      </thead>
+      <tbody id="orders-body"></tbody>
+    </table>
+  </div>
+</main>
+</div>
+
+
+<footer id="contacts" class="footer">
+  <div class="footer-container">
+    <p class="footer-text">
+      Позвонить нам <a href="tel:+70000000000" class="footer-link">+7-000-000-00-00</a>
+      <a href="#feedback-modal" class="btn-modal-open">Обратная связь</a>
+    </p>
+  </div>
+</footer>
+
+<div id="feedback-modal" class="modal-overlay">
+  <div class="modal-card">
+    <a href="#" class="modal-close">&times;</a>
+
+    <h2>Форма обратной связи</h2>
+
+    <form action="https://httpbin.org/post" method="POST" enctype="multipart/form-data">
+
+      <div class="modal-group">
+        <label for="fullname">ФИО</label>
+        <input type="text" id="fullname" name="fullname" placeholder="Введите ФИО">
+      </div>
+
+      <div class="modal-group">
+        <label for="email">Электронная почта</label>
+        <input type="email" id="email" name="email" placeholder="Введите email">
+      </div>
+
+      <div class="modal-group">
+        <label>Откуда вы узнали о нас?</label>
+        <div class="modal-radios">
+          <label class="radio-label">
+            <input type="radio" name="source" value="friends" checked>
+            Рассказали знакомые
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="source" value="internet">
+            Реклама в интернете/соцсетях
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="source" value="poster">
+            Постеры на улице
+          </label>
+          <label class="radio-label">
+            <input type="radio" name="source" value="others">
+            Другое
+          </label>
+        </div>
+      </div>
+
+      <div class="modal-group">
+        <label for="category">Обращение</label>
+        <select id="category" name="category">
+          <option value="proposal">Предложение</option>
+          <option value="complaint">Жалоба</option>
+        </select>
+      </div>
+
+      <div class="modal-group">
+        <label for="message">Текст сообщения</label>
+        <textarea id="message" name="message" rows="6" placeholder="Напишите ваше сообщение здесь"></textarea>
+      </div>
+
+      <div class="modal-group">
+        <label for="attachment">Вложение</label>
+        <input type="file" id="attachment" name="attachment">
+      </div>
+
+      <div class="modal-group modal-checkbox">
+        <label>
+          <input type="checkbox" name="accept" required>
+          Даю согласие на обработку персональных данных
+        </label>
+      </div>
+
+      <button type="submit" class="btn-modal-submit">Отправить</button>
+    </form>
+  </div>
+</div>
+
+<!-- ===== Модальное окно: Просмотр ===== -->
+<div class="dialog" id="view-modal">
+  <div class="dialog-window">
+    <div class="dialog-header">
+      <h2>Просмотр заказа</h2>
+      <button type="button" class="dialog-x" data-close>&times;</button>
+    </div>
+
+    <div class="dialog-body">
+      <div class="info-row"><span>Дата оформления</span><span id="view-date"></span></div>
+
+      <h3>Доставка</h3>
+      <div class="info-row"><span>Имя получателя</span><span id="view-name"></span></div>
+      <div class="info-row"><span>Адрес доставки</span><span id="view-address"></span></div>
+      <div class="info-row"><span>Время доставки</span><span id="view-time"></span></div>
+      <div class="info-row"><span>Телефон</span><span id="view-phone"></span></div>
+      <div class="info-row"><span>Email</span><span id="view-email"></span></div>
+
+      <h3>Комментарий</h3>
+      <p id="view-comment"></p>
+
+      <h3>Состав заказа</h3>
+      <div id="view-dishes"></div>
+
+      <p class="dialog-total">Стоимость: <span id="view-total"></span></p>
+    </div>
+
+    <div class="dialog-footer">
+      <button type="button" class="dialog-btn" data-close>Ок</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Модальное окно: Редактирование ===== -->
+<div class="dialog" id="edit-modal">
+  <div class="dialog-window">
+    <div class="dialog-header">
+      <h2>Редактирование заказа</h2>
+      <button type="button" class="dialog-x" data-close>&times;</button>
+    </div>
+
+    <form id="edit-form">
+      <div class="dialog-body">
+        <div class="info-row"><span>Дата оформления</span><span id="edit-date"></span></div>
+
+        <h3>Доставка</h3>
+        <label class="info-row">
+          <span>Имя получателя</span>
+          <input type="text" name="full_name" required>
+        </label>
+        <label class="info-row">
+          <span>Адрес доставки</span>
+          <input type="text" name="delivery_address" required>
+        </label>
+        <div class="info-row">
+          <span>Тип доставки</span>
+          <span class="radio-column">
+                        <label><input type="radio" name="delivery_type" value="now"> Как можно скорее</label>
+                        <label><input type="radio" name="delivery_type" value="by_time"> Ко времени</label>
+                    </span>
+        </div>
+        <label class="info-row">
+          <span>Время доставки</span>
+          <input type="time" name="delivery_time" min="07:00" max="23:00" step="300">
+        </label>
+        <label class="info-row">
+          <span>Телефон</span>
+          <input type="tel" name="phone" required>
+        </label>
+        <label class="info-row">
+          <span>Email</span>
+          <input type="email" name="email" required>
+        </label>
+
+        <h3>Комментарий</h3>
+        <textarea name="comment" rows="3"></textarea>
+
+        <h3>Состав заказа</h3>
+        <div id="edit-dishes"></div>
+
+        <p class="dialog-total">Стоимость: <span id="edit-total"></span></p>
+      </div>
+
+      <div class="dialog-footer">
+        <button type="button" class="dialog-btn" data-close>Отмена</button>
+        <button type="submit" class="dialog-btn dialog-btn-save">Сохранить</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ===== Модальное окно: Удаление ===== -->
+<div class="dialog" id="delete-modal">
+  <div class="dialog-window dialog-window-small">
+    <div class="dialog-header">
+      <h2>Удаление заказа</h2>
+      <button type="button" class="dialog-x" data-close>&times;</button>
+    </div>
+
+    <div class="dialog-body">
+      <p>Вы уверены, что хотите удалить заказ?</p>
+    </div>
+
+    <div class="dialog-footer">
+      <button type="button" class="dialog-btn" data-close>Отмена</button>
+      <button type="button" class="dialog-btn dialog-btn-danger" id="delete-confirm">Да</button>
+    </div>
+  </div>
+</div>
+
+<script src="common.js"></script>
+<script src="verify.js"></script>
+<script src="orders.js"></script>
+</body>
+</html>

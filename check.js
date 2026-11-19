@@ -105,6 +105,7 @@ document.querySelector('.order-form').addEventListener('submit', async (event) =
         delivery_address: formData.get('delivery_address'),
         delivery_type:    formData.get('delivery_type'),
         comment:          formData.get('comment'),
+        created_at:       new Date().toISOString(),
     };
 
     if (data.delivery_type === 'by_time') {
